@@ -5,9 +5,12 @@ import java.util.List;
 
 class Solution {
     public static void main(String[] args) {
-        isHappy(19);//true
-        isHappy(2);//false
+//        isHappy(19);//true
+//        isHappy(2);//false
+        boolean happy = isHappy(1111111);//false
+        System.out.println(happy);
     }
+
 
     public static boolean isHappy(int n) {
         int result = get(n);
@@ -26,7 +29,7 @@ class Solution {
         for (int i = 0; i < objects.size(); i++) {
             result += objects.get(i) * objects.get(i);
         }
-        if (result > 10) {
+        if (result >= 10) {
             return get(result);
         }
         if (result == 1) {
