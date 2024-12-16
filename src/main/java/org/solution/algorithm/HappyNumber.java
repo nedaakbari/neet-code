@@ -3,30 +3,37 @@ package org.solution.algorithm;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HappyNumber {
+class Solution {
     public static void main(String[] args) {
-        int n = 19;
-        while (get(n) != 1) {
-            n = get(n);
-            if ()
-        }
+        isHappy(19);//true
+        isHappy(2);//false
     }
 
     public static boolean isHappy(int n) {
-        return true;
+        int result = get(n);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public static int get(int n) {
         List<Integer> objects = new ArrayList<>();
         recursion(objects, n);
-        if (objects.size() == 2) {
-            Integer i = objects.get(0);
-            Integer a = objects.get(1);
-            return i * i + a * a;
-        }else {
 
+        int result = 0;
+        for (int i = 0; i < objects.size(); i++) {
+            result += objects.get(i) * objects.get(i);
         }
-        return n;
+        if (result > 10) {
+            return get(result);
+        }
+        if (result == 1) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 
     public static void recursion(List<Integer> finalNum, int number) {
